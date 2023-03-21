@@ -15,4 +15,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.stories = this.storiesService.getNewStories();
   }
+
+  getDateFromUnixTime(time: number) {
+    var date = new Date(time * 1000);
+    return date.toLocaleDateString();
+  }
 }

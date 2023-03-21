@@ -2,11 +2,17 @@
   <h1>News Feed</h1>
   <ul>
     <li *ngFor="let story of stories">
-      <h3>{{ story.title }}</h3>
-      <p *ngIf="story.url">
+      <div class="story-box">
+        <div class="story-box-title">
+          <h3>{{ story.title }}</h3>
+        </div>
+        <div class="story-box-time">
+          <span>{{ getDateFromUnixTime(story.time) }}</span>
+        </div>
+      </div>
+      <span *ngIf="story.url">
         <a href="{{ story.url }}">Read story</a>
-      </p>
-      <br />
+      </span>
       <hr class="solid" />
     </li>
   </ul>
