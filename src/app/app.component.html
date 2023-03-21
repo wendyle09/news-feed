@@ -1,14 +1,13 @@
-<mat-grid-list cols="5">
-  <mat-grid-tile colspan="1"></mat-grid-tile>
-  <mat-grid-tile colspan="3">
-    <div class="mat-app-background">
-      <mat-list>
-        <mat-list-item *ngFor="let story of stories">
-          <span matListItemTitle>{{ story.title }}</span>
-          <span matListItemLine><a href="{{ story.url }}">Read story</a></span>
-        </mat-list-item>
-      </mat-list>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1"></mat-grid-tile>
-</mat-grid-list>
+<div class="news-feed-container">
+  <h1>News Feed</h1>
+  <ul>
+    <li *ngFor="let story of stories">
+      <h3>{{ story.title }}</h3>
+      <p *ngIf="story.url">
+        <a href="{{ story.url }}">Read story</a>
+      </p>
+      <br />
+      <hr class="solid" />
+    </li>
+  </ul>
+</div>
