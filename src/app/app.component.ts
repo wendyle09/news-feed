@@ -5,6 +5,7 @@ import { ApiRequestParams } from './interfaces/apiRequest.interface';
 import { ApiResponseMetadata } from './interfaces/apiResponse.interface';
 import { Story } from './interfaces/story.interface';
 import { StoriesService } from './services/stories.service';
+import { formatSearchText } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
   onSearchSubmit() {
     this.requestParams = {
       ...DEFAULT_REQUEST_PARAMS,
-      search: this.searchText,
+      search: formatSearchText(this.searchText),
     };
     this.getStories();
   }
@@ -37,10 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   handlePageEvent(e: PageEvent) {
-    this.requestParams = {
-      ...DEFAULT_REQUEST_PARAMS,
-      pageNumber: e.pageIndex + 1,
-    };
+    this.requestParams.pageNumber = e.pageIndex + 1;
     this.getStories();
   }
 
