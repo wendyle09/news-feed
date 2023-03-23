@@ -1,5 +1,6 @@
 body {
   color: #011f4b;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -18,36 +19,38 @@ h1 {
   color: #03396c;
 }
 
-h3 {
-  margin-top: 0;
-}
-
 hr.solid {
   border: 1px solid #e9edec;
+  margin: 1em 0;
 }
 
 ul {
   list-style-type: none;
-  margin: 0% 10%;
+  margin: 0% 5%;
   padding: 0;
 }
 
-.news-feed-container {
+div.news-feed-container {
   align-self: center;
   margin: 0% 20%;
   padding: 1% 5%;
 }
 
-.story-box {
+div.story-box {
   display: flex;
 }
 
-.story-box-title {
+div.story-box-title {
   flex: 0 0 80%;
 }
 
-.story-box-time {
+div.story-box-time {
   text-align: right;
   flex: 0 0 20%;
   margin: 0% 5% 0% 0%;
+}
+
+div.story-url {
+  font-size: 0.9em;
+  margin-top: 0.25em;
 }

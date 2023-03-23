@@ -4,15 +4,15 @@
     <li *ngFor="let story of stories">
       <div class="story-box">
         <div class="story-box-title">
-          <h3>{{ story.title }}</h3>
+          <span class="story-title">{{ story.title }}</span>
         </div>
         <div class="story-box-time">
           <span>{{ getDateFromUnixTime(story.time) }}</span>
         </div>
       </div>
-      <span *ngIf="story.url">
+      <div *ngIf="story.url" class="story-url">
         <a href="{{ story.url }}">Read story</a>
-      </span>
+      </div>
       <hr class="solid" />
     </li>
   </ul>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import {
+  ApiResponse,
+  ApiResponseMetadata,
+} from './shared/interfaces/apiResponse.interface';
 import { Story } from './shared/interfaces/story.interface';
 import { StoriesService } from './shared/services/stories.service';
 
@@ -8,12 +13,19 @@ import { StoriesService } from './shared/services/stories.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  metadata: ApiResponseMetadata = {} as ApiResponseMetadata;
   stories: Story[] = [];
 
   constructor(private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    this.stories = this.storiesService.getNewStories();
+    this.storiesService.getLatestStories().subscribe({
+      next: (res) => {
+        this.stories = res.data;
+        this.metadata = res.metadata;
+        console.log(res);
+      },
+    });
   }
 
   getDateFromUnixTime(time: number) {
