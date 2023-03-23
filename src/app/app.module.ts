@@ -6,11 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   imports: [
@@ -18,11 +15,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatButtonModule,
     FormsModule,
+    MaterialModule,
   ],
   declarations: [AppComponent, RelativeTimePipe],
   bootstrap: [AppComponent],
