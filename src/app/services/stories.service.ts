@@ -30,8 +30,6 @@ export class StoriesService {
       }
     }
 
-    console.log(params.toString());
-
     return this.http.get<ApiResponse>(this.buildUrl('stories'), {
       params,
     });

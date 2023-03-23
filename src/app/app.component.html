@@ -2,15 +2,28 @@
   <div class="home">
     <a mat-button class="home" href="/">Latest Hacker News</a>
   </div>
-  <input
-    matInput
-    aria-label="Enter search terms"
-    class="search"
-    placeholder="Search stories by title"
-    type="text"
-  />
-  <button aria-label="Submit search" class="form" type="submit">Search</button>
-  <button aria-label="Clear search results" class="form">Reset</button>
+  <form (ngSubmit)="onSearchSubmit()">
+    <input
+      matInput
+      aria-label="Enter search terms"
+      class="search"
+      name="searchText"
+      placeholder="Search stories by title"
+      type="text"
+      [(ngModel)]="searchText"
+    />
+    <button aria-label="Submit search" class="search" type="submit">
+      Search
+    </button>
+    <button
+      aria-label="Clear search results"
+      class="search"
+      type="reset"
+      (click)="onSearchReset()"
+    >
+      Reset
+    </button>
+  </form>
 </mat-toolbar>
 <div class="news-feed-container">
   <h1>News Feed</h1>

@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
+    FormsModule,
   ],
   declarations: [AppComponent, RelativeTimePipe],
   bootstrap: [AppComponent],
