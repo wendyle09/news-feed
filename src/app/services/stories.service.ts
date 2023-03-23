@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ApiResponse } from '../interfaces/apiResponse.interface';
 import { ApiRequestParams } from '../interfaces/apiRequest.interface';
+import { DEFAULT_REQUEST_PARAMS } from '../constants';
 
 @Injectable({
   providedIn: 'root',
@@ -10,24 +11,15 @@ import { ApiRequestParams } from '../interfaces/apiRequest.interface';
 export class StoriesService {
   constructor(private http: HttpClient) {}
 
-  getLatestStories(requestParams?: ApiRequestParams) {
+  getLatestStories(requestParams?: Partial<ApiRequestParams>) {
     let params = new HttpParams();
 
-    if (requestParams) {
-      // Object.keys(requestParams).forEach(
-      //   (paramName: keyof ApiRequestParams) => {
-      //     params.append(paramName, requestParams[paramName] as string);
-      //   }
-      // );
-      if (requestParams.pageNumber) {
-        params = params.append('pageNumber', requestParams.pageNumber);
-      }
-      if (requestParams.pageSize) {
-        params = params.append('pageSize', requestParams.pageSize);
-      }
-      if (requestParams.search) {
-        params = params.append('search', requestParams.search);
-      }
+    const paramsWithDefaults = { ...DEFAULT_REQUEST_PARAMS, ...requestParams };
+
+    params = params.append('pageNumber', paramsWithDefaults.pageNumber);
+    params = params.append('pageSize', paramsWithDefaults.pageSize);
+    if (paramsWithDefaults.search) {
+      params = params.append('search', paramsWithDefaults.search);
     }
 
     return this.http.get<ApiResponse>(this.buildUrl('stories'), {
