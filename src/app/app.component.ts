@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ApiRequestParams } from './shared/interfaces/apiRequest.interface';
 import {
   ApiResponse,
   ApiResponseMetadata,
@@ -13,23 +14,27 @@ import { StoriesService } from './shared/services/stories.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  requestParams: ApiRequestParams = {
+    pageNumber: 1,
+    pageSize: 10,
+    search: '',
+  };
   metadata: ApiResponseMetadata = {} as ApiResponseMetadata;
   stories: Story[] = [];
 
   constructor(private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    this.storiesService.getLatestStories().subscribe({
+    this.storiesService.getLatestStories(this.requestParams).subscribe({
       next: (res) => {
         this.stories = res.data;
         this.metadata = res.metadata;
-        console.log(res);
       },
     });
   }
 
-  getDateFromUnixTime(time: number) {
+  getTimestampFromUnixTime(time: number) {
     var date = new Date(time * 1000);
-    return date.toLocaleDateString();
+    return `${date.toLocaleTimeString()}\r\n${date.toLocaleDateString()}`;
   }
 }

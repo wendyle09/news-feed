@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RelativeTimePipe } from './pipes/relative-time.pipe';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  declarations: [AppComponent],
+  declarations: [AppComponent, RelativeTimePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
