@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -15,6 +18,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   declarations: [AppComponent, RelativeTimePipe],
   bootstrap: [AppComponent],

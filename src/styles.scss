@@ -1,3 +1,7 @@
+.mat-typography {
+  margin: 0;
+}
+
 body {
   color: #011f4b;
   font-family: Arial, Helvetica, sans-serif;
@@ -5,6 +9,7 @@ body {
 
 a {
   color: #005b96;
+  text-decoration-style: dashed;
 }
 
 a:visited {
@@ -26,31 +31,100 @@ hr.solid {
 
 ul {
   list-style-type: none;
-  margin: 0% 5%;
+  margin: 0 2em;
   padding: 0;
+}
+
+::placeholder {
+  color: #ffffff80;
+}
+
+mat-toolbar {
+  background: #005b96;
+  box-shadow: 0 0.2em 0.4em -0.1em rgba(80, 80, 80, 0.5);
+  height: 5em;
+  margin: 0;
+  position: sticky;
+  top: 0;
+}
+
+div.home {
+  width: 20em;
+}
+
+a.home:link,
+a.home:visited,
+a.home:hover {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+input.search {
+  background: none;
+  border-color: #fff;
+  border-width: 0 0 1px;
+  color: #fff;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  outline: none;
+  margin: 0 1em;
+  width: 25em;
+}
+
+button.form {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 0.25em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0.25em;
+  min-width: 4.5em;
+  outline: 0;
+}
+
+button.form:hover {
+  background-color: #b3cde080;
 }
 
 div.news-feed-container {
   align-self: center;
-  margin: 0% 20%;
-  padding: 1% 5%;
+  margin: 1em 20em 3em;
+  padding: 0;
 }
 
 div.story-box {
   display: flex;
 }
 
-div.story-box-title {
-  flex: 0 0 80%;
+div.story-title {
+  flex: 0 0 75%;
+  line-height: 1.25em;
 }
 
-div.story-box-time {
+div.story-time {
   text-align: right;
   flex: 0 0 20%;
-  margin: 0% 5% 0% 0%;
+  margin-left: auto;
 }
 
 div.story-url {
   font-size: 0.9em;
-  margin-top: 0.25em;
+  margin-top: 0.2em;
+}
+
+div.paginator {
+  background: #005b96;
+  box-shadow: 0 -0.2em 0.4em -0.1em rgba(80, 80, 80, 0.5);
+  color: #cee0ed;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.cdk-overlay-container {
+  display: none;
 }

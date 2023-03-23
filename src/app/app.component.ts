@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
 import { ApiRequestParams } from './shared/interfaces/apiRequest.interface';
 import {
   ApiResponse,
@@ -27,7 +26,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.storiesService.getLatestStories(this.requestParams).subscribe({
-      next: (res) => {
+      next: (res: ApiResponse) => {
         this.stories = res.data;
         this.metadata = res.metadata;
       },

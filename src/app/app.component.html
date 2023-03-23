@@ -1,24 +1,37 @@
+<mat-toolbar>
+  <div class="home">
+    <a mat-button class="home" href="/">Latest Hacker News</a>
+  </div>
+  <input
+    matInput
+    aria-label="Enter search terms"
+    class="search"
+    placeholder="Search stories by title"
+    type="text"
+  />
+  <button aria-label="Submit search" class="form" type="submit">Search</button>
+  <button aria-label="Clear search results" class="form">Reset</button>
+</mat-toolbar>
 <div class="news-feed-container">
   <h1>News Feed</h1>
   <ul>
     <li *ngFor="let story of stories">
-      <div class="story-box">
-        <div class="story-box-title">
-          <span class="story-title">{{ story.title }}</span>
-        </div>
-        <div class="story-box-time">
-          <span>{{ story.time | relativeTime }}</span>
-        </div>
+      <div matListItemLine class="story-box">
+        <div class="story-title">{{ story.title }}</div>
+        <div class="story-time">{{ story.time | relativeTime }}</div>
       </div>
-      <div *ngIf="story.url" class="story-url">
+      <div matListItemLine *ngIf="story.url" class="story-url">
         <a href="{{ story.url }}">Read story</a>
       </div>
       <hr class="solid" />
     </li>
   </ul>
+</div>
+<div class="paginator">
   <mat-paginator
     (page)="handlePageEvent($event)"
     [length]="metadata.totalCount"
     [pageSize]="metadata.pageSize"
+    [showFirstLastButtons]="true"
   ></mat-paginator>
 </div>
