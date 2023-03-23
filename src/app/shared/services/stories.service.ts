@@ -20,7 +20,6 @@ export class StoriesService {
       //   }
       // );
       if (requestParams.pageNumber) {
-        console.log('found page number');
         params = params.append('pageNumber', requestParams.pageNumber);
       }
       if (requestParams.pageSize) {

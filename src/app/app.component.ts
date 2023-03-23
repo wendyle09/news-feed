@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { ApiRequestParams } from './shared/interfaces/apiRequest.interface';
 import {
@@ -33,8 +34,14 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getTimestampFromUnixTime(time: number) {
-    var date = new Date(time * 1000);
-    return `${date.toLocaleTimeString()}\r\n${date.toLocaleDateString()}`;
+  handlePageEvent(e: PageEvent) {
+    this.requestParams.pageNumber = e.pageIndex + 1;
+
+    this.storiesService.getLatestStories(this.requestParams).subscribe({
+      next: (res) => {
+        this.stories = res.data;
+        this.metadata = res.metadata;
+      },
+    });
   }
 }

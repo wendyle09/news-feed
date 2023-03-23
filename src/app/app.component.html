@@ -16,4 +16,9 @@
       <hr class="solid" />
     </li>
   </ul>
+  <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="metadata.totalCount"
+    [pageSize]="metadata.pageSize"
+  ></mat-paginator>
 </div>
