@@ -27,18 +27,9 @@ export const mockStories: Story[] = [
 
 export const mockMetadata: ApiResponseMetadata = {
   currentPage: 1,
-  hasNext: true,
-  hasPrevious: false,
   pageSize: 10,
   totalCount: mockStories.length,
   totalPages: 2,
-  links: {
-    self: '/stories?page=1&pageSize=10',
-    previous: null,
-    next: '/stories?page=2&pageSize=20',
-    first: '/stories?page=1&pageSize=20',
-    last: '/stories?page=2&pageSize=20',
-  },
 };
 
 export const mockApiResponse: ApiResponse = {
