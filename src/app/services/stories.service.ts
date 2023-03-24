@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ApiResponse } from '../interfaces/apiResponse.interface';
 import { ApiRequestParams } from '../interfaces/apiRequest.interface';
-import { DEFAULT_REQUEST_PARAMS } from '../constants';
+import { API_PATH, DEFAULT_REQUEST_PARAMS } from '../constants';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ export class StoriesService {
       params = params.append('search', paramsWithDefaults.search);
     }
 
-    return this.http.get<ApiResponse>(this.buildUrl('stories'), {
+    return this.http.get<ApiResponse>(this.buildUrl(API_PATH), {
       params,
     });
   }
