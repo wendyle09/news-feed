@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   metadata: ApiResponseMetadata = {} as ApiResponseMetadata;
   stories: Story[] = [];
   searchText: string = '';
+  hasError: boolean = false;
 
   constructor(private storiesService: StoriesService) {}
 
@@ -42,11 +43,14 @@ export class AppComponent implements OnInit {
     this.getStories();
   }
 
-  getStories() {
+  private getStories() {
     this.storiesService.getLatestStories(this.requestParams).subscribe({
       next: (res) => {
         this.stories = res.data;
         this.metadata = res.metadata;
+      },
+      error: () => {
+        this.hasError = true;
       },
     });
   }

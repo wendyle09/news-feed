@@ -27,7 +27,7 @@
 </mat-toolbar>
 <div class="news-feed-container">
   <h1>News Feed</h1>
-  <ul>
+  <ul *ngIf="!hasError">
     <li *ngFor="let story of stories">
       <div matListItemLine class="story-box">
         <div class="story-title">{{ story.title }}</div>
@@ -39,9 +39,14 @@
       <hr class="solid" />
     </li>
   </ul>
+  <div *ngIf="hasError" class="error">
+    We've encountered an error while attempting to load data. Please refresh the
+    page to try again.
+  </div>
 </div>
 <div class="paginator">
   <mat-paginator
+    *ngIf="!hasError"
     (page)="handlePageEvent($event)"
     [length]="metadata.totalCount"
     [pageSize]="metadata.pageSize"
